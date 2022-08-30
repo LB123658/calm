@@ -42,7 +42,7 @@ body {
 </style>
 </head>
 <body>
-<p>Time to calm down.</p>
+<p>Inhale and exhale.</p>
 <div id="circle">
   <div></div>
 </div>
@@ -53,16 +53,11 @@ if (window.matchMedia &&
 }
 
 var circle = document.getElementById("circle");
-if (navigator.platform == "iPhone") {
-setCircle();
-} else if (navigator.platform == "Android") {
-setCircle();
-}
 var r = Math.floor(Math.random() * 256);
 var g = Math.floor(Math.random() * 256);
 var b = Math.floor(Math.random() * 256);
-var color = r + ", " + g + ", " + b;
-circle.style.background = "rgb(" + color + ")";
+var col = r + ", " + g + ", " + b;
+circle.style.background = "rgb(" + col + ")";
 
 
 //pwa script
