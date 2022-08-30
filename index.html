@@ -18,9 +18,9 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 300px;
-  height: 300px;
-  margin: -150px -150px;
+  width: 400px;
+  height: 400px;
+  margin: -200px -200px;
   background: grey;
   border-radius: 50%;
   text-align: center;
@@ -43,7 +43,7 @@ body {
 </head>
 <body>
 <p>Inhale and exhale.</p>
-<div id="circle">
+<div id="circle" onclick="show()">
   <div></div>
 </div>
 <script>
@@ -59,7 +59,12 @@ var b = Math.floor(Math.random() * 256);
 var col = r + ", " + g + ", " + b;
 circle.style.background = "rgb(" + col + ")";
 
+var i = 0;
+setInterval(function(){i++;},5000);
 
+function show() {
+alert("You have reached " + i + " breaths.");
+}
 //pwa script
 	window.addEventListener('load', () => {
 	registerSW();
