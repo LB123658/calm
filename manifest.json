@@ -1,7 +1,7 @@
 {
 	"name":"Calm",
 	"short_name":"Calm",
-	"start_url":"breathe.html",
+	"start_url":"loading.html",
 	"display":"standalone",
 	"background_color":"white",
 	"theme_color":"#202124",
