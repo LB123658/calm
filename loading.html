@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calm, loading...</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="images/icon-192x192.png" type="image/png"/>
+<style>
+body {
+  text-align: center;
+  font-size: 120px;
+  user-select: none;
+  -webkit-user-select: none;
+  color: grey;
+  font-family: futura;
+  overflow: hidden
+}
+p {
+  height: 200px;
+  margin-top: -100px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  left: 0px;
+  text-align: center;
+  animation: fade 1.7s;
+  transition: top 2.4s;
+}
+span {
+  color: #70a8aa;
+}
+@keyframes fade {
+  0% {opacity:0;}
+  100% {opacity: 1;}
+}
+</style>
+</head>
+<body>
+<p>Calm<span>.</span></p>
+<script>
+if (window.matchMedia && 
+    window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.body.style.background = "rgb(32, 33, 36)";
+}
+
+setTimeout(function(){document.getElementsByTagName("p")[0].style.top = "200%";},2000);
+setTimeout(function(){location.replace("breathe.html");},3500);
+
+//pwa script
+	window.addEventListener('load', () => {
+	registerSW();
+	});
+
+	// Register the Service Worker
+	async function registerSW() {
+	if ('serviceWorker' in navigator) {
+		try {
+		await navigator
+				.serviceWorker
+				.register('serviceworker.js');
+		}
+		catch (e) {
+		console.log('SW registration failed');
+		}
+	}
+	}
+
+</script>
+</body>
+</html>
