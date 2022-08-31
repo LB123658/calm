@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>Calm</title>
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="images/icon-192x192.png" type="image/png"/>
+<style>
+body {
+  text-align: center;
+  font-size: 40px;
+  user-select: none;
+  -webkit-user-select: none;
+  color: grey;
+  font-family: futura;
+  overflow-x: hidden
+}
+.i {
+color: rgb(112, 168, 170);
+}
+button {
+  font-size: 50px;
+  color: white;
+  background: #2d7df3;
+  height: 80px;
+  padding: 10px 30px 20px 30px;
+  border-radius: 50px;
+  border: none;
+}
+#promotional {
+  width: 50%;
+  border-radius: 5px;
+}
+</style>
+</head>
+<body>
+<p><span style="font-size:50px">Install Calm.</span><br><br><span class="i">A guided breathing app.</span></p>
+<button id="download" onclick="app()">Get app</button>
+<br><br>
+<img id="promotional"/>
+<script>
+var d = document.getElementById("download");
+var p = document.getElementById("promotional");
+
+if (navigator.platform == "MacIntel") {
+  d.innerHTML = "Install web app";
+  p.src = "https://lb123658.github.io/calm/images/desktop.png";
+} else if (navigator.platform == "iPhone") {
+  d.innerHTML = "GET";
+  p.src = "https://lb123658.github.io/calm/images/mobile.png";
+} else if (navigator.platform == "Android") {
+  d.innerHTML = "Install";
+  p.src = "https://lb123658.github.io/calm/images/mobile.png";
+} else {
+  p.src = "https://lb123658.github.io/calm/images/desktop.png";
+}
+
+function app() {
+if (navigator.platform == "iPhone") {
+  alert("Click the \"Share\" button at the bottom of the screen, scroll down and click \"Add to home screen\".");
+} else if (navigator.platform == "Android") {
+  alert("If an \"Add to home screen\" prompt did not pop up, click the menu button at the top of the screen, scroll down, and click \"Add to Home screen\".");
+} else {
+  alert("Click the \"Install\" prompt in the address bar at the top of the window to install.")
+}
+}
+
+// dark mode
+if (window.matchMedia && 
+    window.matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.body.style.background = "rgb(32, 33, 36)";
+}
+
+//pwa script
+	window.addEventListener('load', () => {
+	registerSW();
+	});
+
+	// Register the Service Worker
+	async function registerSW() {
+	if ('serviceWorker' in navigator) {
+		try {
+		await navigator
+				.serviceWorker
+				.register('serviceworker.js');
+		}
+		catch (e) {
+		console.log('SW registration failed');
+		}
+	}
+	}
+
+</script>
+</body>
+</html>
