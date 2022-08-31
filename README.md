@@ -1,3 +1,2 @@
-# Calm
-A guided breathing app
+# Calm [A guided breathing app]
 -------------
